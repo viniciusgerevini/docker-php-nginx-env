@@ -1,0 +1,10 @@
+version: '2'
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./hosts:/etc/nginx/conf.d
+      - ./projects:/var/www
+    ports:
+      - "8080:80"
+    command: nginx -g 'daemon off;'
