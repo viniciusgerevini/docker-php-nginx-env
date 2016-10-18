@@ -6,5 +6,8 @@
   </head>
   <body>
     <h1>This is the default page!</h1>
+    <?php
+      phpinfo();
+    ?>
   </body>
 </html>

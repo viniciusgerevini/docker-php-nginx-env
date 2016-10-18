@@ -1,10 +1,17 @@
 version: '2'
 services:
-  web:
+  nginx:
     image: nginx:alpine
     volumes:
       - ./hosts:/etc/nginx/conf.d
-      - ./projects:/var/www
+      - ./files:/var/www
     ports:
       - "8080:80"
     command: nginx -g 'daemon off;'
+    links:
+      - php
+  php:
+    image: php:7.1-fpm-alpine
+    volumes:
+      - ./files:/var/www/html
+      - ./files:/var/www
