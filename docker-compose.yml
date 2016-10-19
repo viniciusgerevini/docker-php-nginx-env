@@ -10,8 +10,21 @@ services:
     command: nginx -g 'daemon off;'
     links:
       - php
+      - mariadb
   php:
-    image: php:7.1-fpm-alpine
+    build:
+      context: .
+      dockerfile: php.dockerfile
     volumes:
       - ./files:/var/www/html
       - ./files:/var/www
+    links:
+      - mariadb
+
+  mariadb:
+    image: mariadb
+    environment:
+      - MYSQL_DATABASE=test_db
+      - MYSQL_ROOT_PASSWORD=test_pass
+    volumes:
+      - ./mysql/database:/var/lib/mysql
