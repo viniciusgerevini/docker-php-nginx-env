@@ -1,5 +1,6 @@
 version: '2'
 services:
+  # NGINX container
   nginx:
     image: nginx:alpine
     volumes:
@@ -11,6 +12,7 @@ services:
     links:
       - php
       - mariadb
+  # PHP FPM container
   php:
     build:
       context: .
@@ -20,7 +22,7 @@ services:
       - ./files:/var/www
     links:
       - mariadb
-
+  # MariaDB container
   mariadb:
     image: mariadb
     environment:
