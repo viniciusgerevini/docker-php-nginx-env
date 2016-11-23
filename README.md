@@ -5,6 +5,8 @@ Simple Dockerised PHP environment for development using docker-compose.
 - 3 separated containers. NGINX + PHP FPM + MariaDB
 - Database is persisted in the host. You can stop and recreate containers without losing data.
 
+If you are looking for a Wordpress environment checkout `wordpress` branch in this repository.
+
 ## How to
 
 Starting environment:
