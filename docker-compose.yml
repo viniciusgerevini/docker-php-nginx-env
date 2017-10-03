@@ -7,7 +7,7 @@ services:
       - ./hosts:/etc/nginx/conf.d
       - ./files:/var/www
     ports:
-      - "8080:80"
+      - "80:80"
     command: nginx -g 'daemon off;'
     links:
       - php
